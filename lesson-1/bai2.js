@@ -1,29 +1,26 @@
-function compareAge(name, name1, age, age1) {
-    if (age > age1){
-      console.log( name + " lon hon " + name1 + ( age - age1 ) + " tuoi " )
-     }
-     if (age = age1) {
-      console.log(name + " bang tuoi " + name1 )
-     }
-     if (age < age1) {
-      console.log(name + " nho hon "  + name1 + (age1 - age) )
-     }
-     compareAge("cong" , "hai" ,22 ,20)
-  
-  }
-  function bmi (height, weight){
-    var result = weight/(height** 2);
-    console.log(weight/(height** 2))
-    if (bmi < 18.5){
-        console.log("underweight")
-    
-}else if(result < 24.99 ){
-    console.log(result + "Normal weight ");
-}else if(result < 29.99 ){
-    console.log(result + " Pre-obesity");
+// bai 2" Viết function kiểm tra số nhập vào có thỏa mãn điều kiện không? 
+// Nếu có log ra console tương ứng như sau:
+// Nếu chia hết cho 3 => Log ra Foo
+// Nếu chia hết cho 5 => Log ra Bar
+// Nếu chia hết cho cả 3 và 5 => Log ra FooBar
+// Nếu không chia hết cho cả 3 và 5 => Log ra Not FooBar
+// Nếu số nhập vào không phải là Number => Log ra Not a Number!
 
-}else {
-    console.log("Obesity");
+ function Foobar (number) {
+    if (number % 3 == 0 && number % 5 == 0){
+        console.log("FooBar");
+    } else if (number % 3 == 0 ){
+        console.log("Foo");
+    }else if (number % 5 == 0){
+        console.log("Bar");
+    } else if (typeof number !="number"){
+        console.log("not a number");
+    }else {
+         console.log("Not FooBar");
+    }
 }
-}
-bmi(1.70,55);
+Foobar(60);
+Foobar(6);
+Foobar(10);
+Foobar("cong");
+Foobar(22);
