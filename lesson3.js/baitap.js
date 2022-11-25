@@ -2,7 +2,7 @@
 function doubleValue() {
     const array = [2, 4, 6];
     var result = array.map(number => {
-    return number * 2;
+     return number * 2;
     });
     console.log(result);
 }
@@ -16,6 +16,7 @@ function checkArray(number) {
     console.log(array);
 }
 checkArray(5);
+//
 
 
 
