@@ -3,10 +3,16 @@
 
 function upperCaseString(string) {
     let convert = string.toLowerCase().split(" ");
+     // Dùng split() để tách tất cả các từ
     for(var i = 0; i< convert.length; i++){
+        // slice dùng cắt bỏ phần tử của mảng
+      //slice dùng để Nối chữ cái đầu tiên đã được viết hoa với phần còn lại trong chuỗi ban đầu được cắt bởi slice().
+      //Dùng toUppperCase() để chuyển chữ cái đầu tiên thành chữ hoa,
        convert[i] = convert[i][0].toUpperCase() + convert[i].slice(1);
     }
     return convert.join(" ");
+    // join () tạo ra 1 chuỗi mới
+  // join() giúp nối các phần tử trong một mảng thành một chuỗi..
   }
   console.log(upperCaseString('It is a good day'));
 
