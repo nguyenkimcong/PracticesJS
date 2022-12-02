@@ -153,7 +153,11 @@ for (let i = 0; i < keys.length; i++) {
 
 // 2. Tính tổng tiền tất cả sản phẩm trong giỏ hàng
 // Tổng tiền mỗi sản phẩm = price * count
-
+let sum = 0;
+for (let item of products) {
+    sum += item.price * item.count;
+}
+console.log(sum);
 
 // 3. Tìm các sản phẩm của thuơng hiệu "Apple"
 function AppleProduct(str){

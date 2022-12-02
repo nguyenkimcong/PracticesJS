@@ -1,3 +1,4 @@
+//bài 1:
 let products = [
     {
         name: "Iphone 13 Pro Max", // Tên sản phẩm
@@ -50,12 +51,12 @@ function AppleProduct(str){
 console.log(AppleProduct("Apple"));
 
 // 4. Tìm các sản phẩm có giá > 20000000
-function searchProduct(){
-    for (const i of products) {
-        if(i.price > 20000000){
-            return i;
+function searchProduct(){ 
+    for (let item of products) {
+        if (item.price > 20000000) {
+            console.log(item.name);
         }
-    }    
+    }   
 }
 console.log(searchProduct());
 
@@ -66,15 +67,12 @@ function searchByKey(str) {
 console.log(searchByKey("pro"));
 
 // 6. Thêm 1 sản phẩm bất kỳ vào trong mảng product
-function addProduct(product){
-    products.push(product);
-}
-addProduct({
+products.push({
         name: "vertu",
         price: 1000000000,
         brand: "vertu",
         count: 2,
-    });
+    })
 
 // 7. Xóa tất cả sản phẩm của thương hiệu "Samsung" trong giỏ hàng
 function delProductByBrand(str) {
@@ -92,22 +90,57 @@ sortByPrice();
 // 9. Sắp xếp giỏ hàng theo count giảm dần
 function sortByCount() {
     products.sort(function (a, b) {
-        return a.count - b.count;
+        return b.count - a.count;
     })
 }
 sortByCount();
 
 // 10. Lấy ra 2 sản phẩm bất kỳ trong giỏ hàng
-function randomProduct() {
-    let n = products.length;
-    if (n < 2) {
-        return "k đủ sản phẩm để lấy!!!";
+
+console.log(products[Math.floor(Math.random() * products.length)]);
+console.log(products[Math.floor(Math.random() * products.length)]);
+
+//bài 2: Tạo 1 constructor tên Person khi khởi tạo có name và age được truyền vào và một property tên stomach là array.
+// Các instances của Person khi khởi tạo sẽ có 1 stomach là array rỗng (Chiếc bụng đói)
+// Xử lý để các instances của Person có các method sau:
+//     method .eat("something") , khi người ăn một cái gì đó, loại thức ăn đó sẽ được đẩy vào array stomach (Đẩy thức ăn vào bụng), method eat này không nhận quá 10 thức ăn vào bụng.
+//     method .poop(), khi người thực hiện poops thì array stomach sẽ empty (Đào thải tất cả)
+//     method .introduceMyself trả ra string giới thiệu về bản thân theo format sau: This is David, 50 years old
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+    this.eat = function(something) {
+        if (this.stomach.length >= 10) {
+            return;
+        }
+        this.stomach.push(something);
     }
-    let a = Math.floor(Math.random() * n);
-    let b = Math.floor(Math.random() * n);
-    while (a == b) {
-        b = Math.floor(Math.random() * n);
+    this.poop = function() {
+        this.stomach.length = 0;
     }
-    return [products[a], products[b]];
+    this.introduceMyself = function() {
+        console.log(`This is ${this.name}, ${this.age} years old.`);
+    }
 }
-console.log(randomProduct());
+
+david = new Person("David", 50);
+
+david.eat("cơm");
+david.eat("bánh mì");
+david.eat("sôi");
+david.eat("cơm");
+david.eat("bánh mì");
+david.eat("sôi");
+david.eat("cơm");
+david.eat("bánh mì");
+david.eat("sôi");
+david.eat("cơm");
+david.eat("bánh mì");
+david.eat("sôi");
+
+david.poop();
+console.log(david);
+
+david.introduceMyself();
